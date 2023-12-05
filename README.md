@@ -49,3 +49,7 @@ Please ensure that your contributions align with the overall theme of Python cod
 This repository is licensed under the [MIT License](LICENSE). Feel free to use, modify, and share the content, but make sure to provide proper attribution.
 
 Happy coding and best of luck with your data science interviews!
+
+
+## **About Me**:
+I’m a seasoned Data Scientist and founder of [TowardsMachineLearning.Org](https://towardsmachinelearning.org/). I've worked on various Machine Learning, NLP, and cutting-edge deep learning frameworks to solve numerous business problems.
