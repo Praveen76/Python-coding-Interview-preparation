@@ -95,44 +95,43 @@ In practice, you'll often encounter libraries that consist of packages and modul
 
 
 # Q2. Difference among %, /, // in Python?
-Ans: In Python, `%`, `/`, and `//` are operators used for different mathematical operations:
+Ans: In Python, the division operator `/` performs floating-point division, returning a floating-point result. The `//` operator performs floor division, and the `%` operator calculates the remainder of a division. Here's a breakdown of the differences:
 
-1. **Percentage (`%`):**
-   - In Python, the `%` operator is used for the modulus operation. It returns the remainder of the division of the left operand by the right operand.
-   - Example: `a % b` returns the remainder when `a` is divided by `b`.
-
-     ```python
-     result = 10 % 3  # Result is 1, because 10 divided by 3 is 3 with a remainder of 1
-     ```
-
-2. **Division (`/`):**
-   - The `/` operator is used for regular division. It returns a floating-point result of the division operation.
-   - Example: `a / b` returns the result of dividing `a` by `b`, and the result is a floating-point number.
+1. **`/` (Floating-Point Division):**
+   - The `/` operator is used for regular or floating-point division.
+   - It returns a floating-point result, even if both operands are integers.
+   - Example:
 
      ```python
-     result = 10 / 3  # Result is 3.3333333333333335
+     result = 5 / 2
+     print(result)  # Output: 2.5
      ```
 
-3. **Floor Division (`//`):**
-   - The `//` operator is used for floor division. It returns the largest integer less than or equal to the division result. In other words, it truncates the decimal part of the result.
-   - Example: `a // b` returns the integer division of `a` by `b`.
+2. **`//` (Floor Division):**
+   - The `//` operator is used for floor division.
+   - It performs division and rounds down to the nearest integer, producing an integer result.
+   - returns the quotient of the division
+   - Example:
 
      ```python
-     result = 10 // 3  # Result is 3, because it discards the decimal part
+     result = 5 // 2
+     print(result)  # Output: 2
      ```
 
-In summary:
-- `%` gives the remainder of a division.
-- `/` performs regular division, resulting in a floating-point number.
-- `//` performs floor division, resulting in an integer by discarding the decimal part.
+3. **`%` (Modulo Operator):**
+   - The `%` operator is the modulo operator.
+   - It returns the remainder of the division between two numbers.
+   - Example:
 
-Example:
+     ```python
+     result = 5 % 2
+     print(result)  # Output: 1
+     ```
 
-```python
-a = 10
-b = 3
+Here's a quick summary:
 
-remainder = a % b  # Result is 1
-division_result = a / b  # Result is 3.3333333333333335
-floor_division_result = a // b  # Result is 3
-```
+- `/`: Floating-point division, returns a floating-point result.
+- `//`: Floor division, returns an integer result by rounding down.
+- `%`: Modulo operator, returns the remainder of the division.
+
+It's important to choose the appropriate operator based on the desired outcome in your specific use case. For example, if you want a floating-point result, use `/`; if you want an integer result rounded down, use `//`; and if you want the remainder, use `%`.

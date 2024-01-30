@@ -42,20 +42,14 @@ The provided Python code defines a function named find_missing_number that takes
        return expected_sum - actual_sum
    ```
 
-6. **Binary Search:**
-   ```python
-   def binary_search(arr, target):
-       low, high = 0, len(arr) - 1
-       while low <= high:
-           mid = (low + high) // 2
-           if arr[mid] == target:
-               return mid
-           elif arr[mid] < target:
-               low = mid + 1
-           else:
-               high = mid - 1
-       return -1
-   ```
+6. How to reverse the order of elements in a list without using a for loop?
+
+```python
+# Ans:
+original_list = [1, 2, 3, 4, 5]
+reversed_list = list(reversed(original_list))
+print(reversed_list)
+```
 
 7. **Two Sum:**
    ```python
@@ -119,18 +113,14 @@ In this example, the input list nums is [-2, 1, -3, 4, -1, 2, 1, -5, 4]. The max
         return merged
     ```
 
-11. **Implement a Stack:**
-    ```python
-    class Stack:
-        def __init__(self):
-            self.items = []
-        def push(self, item):
-            self.items.append(item)
-        def pop(self):
-            return self.items.pop()
-        def is_empty(self):
-            return len(self.items) == 0
-    ```
+11: How to count the occurrences of each element in a list without using a for loop?
+
+```python
+# Ans:
+my_list = [1, 2, 2, 3, 4, 4, 5, 5, 5]
+element_counts = {element: my_list.count(element) for element in set(my_list)}
+print(element_counts)
+```
 
 12. **Implement a Queue:**
     ```python
@@ -503,3 +493,17 @@ This code defines a function `print_pattern` that takes the number of rows (`n`)
 The output for `rows = 5` will be:
 
 You can modify the `rows` variable to get a different-sized pattern.
+
+### Q 34: Code to write Fibonacci series?
+Ans:
+```python
+
+n = 5
+a, b = 0, 1
+fib_series = [a, b]
+for _ in range(n):
+    a, b = b, a + b
+    fib_series.append(b)
+
+print(fib_series)
+```

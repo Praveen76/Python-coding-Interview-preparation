@@ -80,3 +80,128 @@ print_every_second_character(my_string)
 In this code, the function `print_every_second_character` iterates through the characters of the string using a loop with a step size of 2 (`range(1, len(s), 2)`). It then concatenates each 2nd character to the `result` string.
 
 The example usage prints every 2nd character of the string "hello," resulting in the output "el." Feel free to replace the value of the `my_string` variable with different strings for testing.
+
+# Q4. Merge the below lists to generate a list C, you should not use the sorted() function in python ?
+          A = [1,2,3,5]
+          B= [7,8,9,11,15]
+
+Ans: Here are a few  methods to merge two sorted lists without using the `sorted()` function:
+
+### Using `extend` and `sort`:
+```python
+A = [1, 2, 3, 5]
+B = [7, 8, 9, 11, 15]
+
+# Extend list A with elements of B
+A.extend(B)
+
+# Sort the merged list
+A.sort()
+
+# Result is in A
+C = A
+print("Merged List C:", C)
+```
+
+### Using `+=` and `sort`:
+```python
+A = [1, 2, 3, 5]
+B = [7, 8, 9, 11, 15]
+
+# Concatenate lists A and B and sort the result
+C = A + B
+C.sort()
+
+print("Merged List C:", C)
+```
+
+### Using `heapq.merge` (requires Python 3.5+):
+```python
+import heapq
+
+A = [1, 2, 3, 5]
+B = [7, 8, 9, 11, 15]
+
+# Use heapq.merge to merge sorted iterables
+C = list(heapq.merge(A, B))
+
+print("Merged List C:", C)
+```
+
+### Using a loop and `insert`:
+```python
+A = [1, 2, 3, 5]
+B = [7, 8, 9, 11, 15]
+
+# Initialize an empty list C
+C = list(A)
+
+# Iterate through elements in B and insert them in sorted order in C
+for element in B:
+    for i in range(len(C)):
+        if element < C[i]:
+            C.insert(i, element)
+            break
+    else:
+        # If the element is greater than all elements in C, append it
+        C.append(element)
+
+print("Merged List C:", C)
+```
+
+These methods provide different approaches to achieve the same result. Choose the one that best fits your needs and preferences.
+
+```python
+A = [1, 2, 3, 5]
+B = [7, 8, 9, 11, 15]
+
+# Initialize an empty list C with the elements of A
+C = list(A)
+
+# Insert elements from B into C in sorted order
+for element in B:
+    inserted = False
+    for i in range(len(C)):
+        if element < C[i]:
+            C.insert(i, element)
+            inserted = True
+            break
+
+    if not inserted:
+        # If the element is greater than all elements in C, append it
+        C.append(element)
+
+print("Merged List C:", C)
+
+```
+# Q4.1: Could an else clause exist without an if clause?
+Ans:
+In Python, the `for` loop can have an optional `else` clause. The `else` block is executed if the loop completes its iterations without encountering a `break` statement. In this specific case:
+
+```python
+for i in range(len(C)):
+    if element < C[i]:
+        C.insert(i, element)
+        break
+else:
+    # If the loop completes without hitting the break statement, execute this block
+    C.append(element)
+```
+
+This usage of the `else` clause with a `for` loop is a bit uncommon and might be confusing. It is used here to check if the inner loop completed without breaking. If it did, it means that the element being considered is greater than or equal to all elements in `C`, so it should be appended to the end of the list.
+
+While this code works, it might be clearer to use a flag variable or a different approach to handle the logic more explicitly. For example:
+
+```python
+for element in B:
+    inserted = False
+    for i in range(len(C)):
+        if element < C[i]:
+            C.insert(i, element)
+            inserted = True
+            break
+    if not inserted:
+        C.append(element)
+```
+
+This way, the logic for appending the element if it's greater than all elements in `C` is more explicitly handled without relying on the `else` clause of the `for` loop.
